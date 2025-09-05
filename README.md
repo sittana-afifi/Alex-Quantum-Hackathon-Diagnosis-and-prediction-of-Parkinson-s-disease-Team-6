@@ -81,11 +81,6 @@ jupyterlab==4.2.5
 notebook==7.2.2
 ```
 
-### `notebooks/01_preprocessing.ipynb`
-
-```
-# Code
-```
 
 ---
 
