@@ -1,4 +1,4 @@
-```markdown
+
 # Parkinson’s Disease Classification Repository  
 *A Comparative Study of Classical and Fully-Quantum Machine Learning Models*
 
@@ -220,5 +220,4 @@ if __name__ == "__main__":
 * Training **only** on simulators; QPU execution = **inference only**
 * Report and comparison to be included in `report/Technical_Report.pdf`
 
-```
 ```
