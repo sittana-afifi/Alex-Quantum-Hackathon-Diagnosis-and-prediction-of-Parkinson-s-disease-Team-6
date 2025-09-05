@@ -64,20 +64,5 @@ pip install -r requirements.txt
 
 ---
 
-## 📑 Files
 
-
-### `requirements.txt`
-
-```txt
-numpy==1.26.4
-pandas==2.2.2
-scikit-learn==1.5.1
-matplotlib==3.9.2
-joblib==1.4.2
-qiskit==1.2.4
-pennylane==0.38.0
-jupyterlab==4.2.5
-notebook==7.2.2
-```
 
