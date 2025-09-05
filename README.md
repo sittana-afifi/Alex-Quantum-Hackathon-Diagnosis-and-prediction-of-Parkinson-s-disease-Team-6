@@ -27,10 +27,7 @@ This repository provides a **scientific and reproducible framework** for compari
 │   └── download\_data.py
 ├── models/                # Saved models + scalers
 ├── results/               # Metrics, plots, logs
-├── report/
-│   └── Technical\_Report.pdf
 ├── requirements.txt
-├── .gitignore
 └── README.md
 
 ````
@@ -72,27 +69,6 @@ pip install -r requirements.txt
 
 ## 📑 Files
 
-### `.gitignore`
-
-```gitignore
-__pycache__/
-*.py[cod]
-*.egg-info/
-*.joblib
-*.pkl
-*.h5
-*.pt
-.ipynb_checkpoints/
-data/raw/
-data/processed/
-results/
-models/
-.env
-.venv/
-*.env
-*.venv
-.DS_Store
-```
 
 ### `requirements.txt`
 
@@ -148,76 +124,14 @@ if __name__ == "__main__":
 
 ### `notebooks/01_preprocessing.ipynb`
 
-```json
-{
- "cells": [
-  {
-   "cell_type": "code",
-   "metadata": {},
-   "source": [
-    "# Data Preprocessing for Parkinson's Disease Classification\n",
-    "import pandas as pd\n",
-    "from sklearn.model_selection import train_test_split\n",
-    "from sklearn.preprocessing import StandardScaler\n",
-    "from joblib import dump\n",
-    "import os\n",
-    "\n",
-    "# Step 1: Load dataset\n",
-    "df = pd.read_csv(\"data/raw/parkinsons.csv\")\n",
-    "print(f\"Dataset shape: {df.shape}\")\n",
-    "display(df.head())\n",
-    "\n",
-    "# Step 2: Features and labels\n",
-    "X = df.drop(columns=[\"status\"])\n",
-    "y = df[\"status\"]\n",
-    "\n",
-    "# Step 3: Train-test split\n",
-    "X_train, X_test, y_train, y_test = train_test_split(\n",
-    "    X, y, test_size=0.2, stratify=y, random_state=42\n",
-    ")\n",
-    "\n",
-    "# Step 4: Standardization\n",
-    "scaler = StandardScaler()\n",
-    "X_train_scaled = scaler.fit_transform(X_train)\n",
-    "X_test_scaled = scaler.transform(X_test)\n",
-    "\n",
-    "# Step 5: Save\n",
-    "os.makedirs(\"data/processed\", exist_ok=True)\n",
-    "os.makedirs(\"models\", exist_ok=True)\n",
-    "\n",
-    "train = pd.DataFrame(X_train_scaled, columns=X.columns)\n",
-    "train[\"status\"] = y_train.values\n",
-    "test = pd.DataFrame(X_test_scaled, columns=X.columns)\n",
-    "test[\"status\"] = y_test.values\n",
-    "\n",
-    "train.to_csv(\"data/processed/train.csv\", index=False)\n",
-    "test.to_csv(\"data/processed/test.csv\", index=False)\n",
-    "dump(scaler, \"models/scaler.joblib\")\n",
-    "\n",
-    "print(\"✔ Preprocessing complete: train/test sets and scaler saved.\")"
-   ],
-   "execution_count": null,
-   "outputs": []
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3",
-   "language": "python",
-   "name": "python3"
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 5
-}
+```
+# Code
 ```
 
 ---
 
 ## 📌 Notes
 
-* All random splits fixed (`random_state=42`) for reproducibility
-* Training **only** on simulators; QPU execution = **inference only**
-* Report and comparison to be included in `report/Technical_Report.pdf`
+* All random splits fixed (`random_state=42`) for reproducibility.
 
 ```
