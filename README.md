@@ -81,11 +81,3 @@ jupyterlab==4.2.5
 notebook==7.2.2
 ```
 
-
----
-
-## 📌 Notes
-
-* All random splits fixed (`random_state=42`) for reproducibility.
-
-```
