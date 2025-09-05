@@ -81,16 +81,3 @@ jupyterlab==4.2.5
 notebook==7.2.2
 ```
 
-### `notebooks/01_preprocessing.ipynb`
-
-```
-# Code
-```
-
----
-
-## 📌 Notes
-
-* All random splits fixed (`random_state=42`) for reproducibility.
-
-```
